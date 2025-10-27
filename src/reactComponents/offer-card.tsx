@@ -1,42 +1,40 @@
 ﻿import { JSX } from 'react';
+import { Offer } from '../types/offer';
+import {AppRoute} from './const.ts';
+import {Link} from 'react-router-dom';
 
-type PlaceCardProps = {
-  name: string;
-  type: string;
-  imageUrl: string;
-  price: number;
-  rating: number;
-  isPremium: boolean;
+type OfferCardProps = {
+  offer: Offer;
   inBookmarks: boolean;
 };
 
-function OfferCard(props: PlaceCardProps): JSX.Element {
+function OfferCard({offer, inBookmarks}: OfferCardProps): JSX.Element {
   const maxRating = 5;
-  const ratingWidthPercentage = (props.rating / maxRating) * 100;
+  const ratingWidthPercentage = (offer.rating / maxRating) * 100;
   return (
     <article className="cities__card place-card">
       {
-        props.isPremium &&
+        offer.isPremium &&
         <div className="place-card__mark">
           <span>Premium</span>
         </div>
       }
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <a href="#">
-          <img className="place-card__image" src={props.imageUrl} width="260" height="200" alt="Place image"/>
-        </a>
+        <Link to={`${AppRoute.Offer}/${offer.id}`}>
+          <img className="place-card__image" src={offer.imageUrl} width="260" height="200" alt="Place image"/>
+        </Link>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
-            <b className="place-card__price-value">&euro;{props.price}</b>
+            <b className="place-card__price-value">&euro;{offer.price}</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
           <button className="place-card__bookmark-button button" type="button">
             <svg className="place-card__bookmark-icon" width="18" height="19">
               <use xlinkHref="#icon-bookmark"></use>
             </svg>
-            <span className="visually-hidden">{props.inBookmarks ? 'In bookmarks' : 'To bookmarks'}</span>
+            <span className="visually-hidden">{inBookmarks ? 'In bookmarks' : 'To bookmarks'}</span>
           </button>
         </div>
         <div className="place-card__rating rating">
@@ -46,9 +44,9 @@ function OfferCard(props: PlaceCardProps): JSX.Element {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">Beautiful &amp;{props.name}</a>
+          <a href="#">Beautiful &amp;{offer.name}</a>
         </h2>
-        <p className="place-card__type">{props.type}</p>
+        <p className="place-card__type">{offer.type}</p>
       </div>
     </article>
   );

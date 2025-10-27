@@ -1,26 +1,12 @@
 ﻿import { JSX } from 'react';
-import OfferCard from '../offer-card.tsx';
-import { OfferCards } from '../const.ts';
+import {Offers} from '../../types/offer.ts';
+import ListOffers from '../list-offers.tsx';
 
 type MainScreenProps = {
-  offerCardCount: number;
+  offers: Offers;
 }
 
-function MainScreen({offerCardCount}: MainScreenProps): JSX.Element {
-  const cards = Array.from(Array(offerCardCount).keys())
-    .map((index) => OfferCards[index % OfferCards.length])
-    .map((place) => (
-      <OfferCard
-        key={place.name}
-        name={place.name}
-        type={place.type}
-        imageUrl={place.imageUrl}
-        price={place.price}
-        rating={place.rating}
-        isPremium={place.isPremium}
-        inBookmarks={place.inBookmarks}
-      />
-    ));
+function MainScreen({offers}: MainScreenProps): JSX.Element {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -110,8 +96,7 @@ function MainScreen({offerCardCount}: MainScreenProps): JSX.Element {
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content"> {cards}
-              </div>
+              <ListOffers offers={offers}/>
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>

@@ -1,14 +1,9 @@
 ﻿import { JSX } from 'react';
+import './not-found-screen.css';
 
 function NotFoundScreen(): JSX.Element {
   return (
-    <div className="page--not-found" style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      textAlign: 'center',
-    }}
-    >
+    <div className="page--not-found">
       <img
         className="not-found"
         src="img/404.svg"
@@ -16,13 +11,7 @@ function NotFoundScreen(): JSX.Element {
         width="500"
         height="500"
       />
-      <div style={{
-        fontSize: '20px',
-        color: '#666',
-        maxWidth: '800px',
-        lineHeight: '1.5'
-      }}
-      >
+      <div className="message">
         Ой, cтраница, которую вы ищете, не существует или была перемещена!
       </div>
     </div>
