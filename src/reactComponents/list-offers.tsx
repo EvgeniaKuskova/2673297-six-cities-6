@@ -4,15 +4,15 @@ import OfferCard from './offer-card.tsx';
 
 type OfferListProps = {
   offers: Offers;
-  onOfferHover: (offerId: number | null) => void;
+  onOfferHover?: (offerId: number | null) => void;
 };
 
 function ListOffers({offers, onOfferHover} : OfferListProps) : JSX.Element {
   const handleOfferMouseEnter = (offerId: number) => {
-    onOfferHover(offerId);
+    onOfferHover?.(offerId);
   };
   const handleOfferMouseLeave = () => {
-    onOfferHover(null);
+    onOfferHover?.(null);
   };
 
   return (
