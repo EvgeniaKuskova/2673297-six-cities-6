@@ -23,7 +23,13 @@ export const offers: Offers = [
         },
         comment: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
         rating: 4
-      }]},
+      }],
+    point: {
+      lat: 52.3909553943508,
+      lng: 4.85309666406198,
+      id: 1
+    }
+  },
   {
     name: 'Wood and stone place',
     type: 'Room',
@@ -35,7 +41,12 @@ export const offers: Offers = [
     bedrooms: 1,
     maxAdults: 1,
     goods: ['Wi-Fi', 'Heating', 'Towels'],
-    reviews: []
+    reviews: [],
+    point: {
+      lat: 52.3609553943508,
+      lng: 4.85309666406198,
+      id: 2
+    }
   },
   {
     name: 'Canal View Prinsengracht',
@@ -58,7 +69,12 @@ export const offers: Offers = [
       },
       comment: 'The apartment was even better than the photos! Great location and very comfortable bed. Would definitely stay again.',
       rating: 5
-    },]
+    },],
+    point: {
+      lat: 52.3909553943508,
+      lng: 4.929309666406198,
+      id: 3
+    }
   },
   {
     name: 'Nice, cozy, warm big bed apartment',
@@ -81,6 +97,12 @@ export const offers: Offers = [
       },
       comment: 'The premium apartment was absolutely worth it! The attention to detail and amenities made our stay exceptional.',
       rating: 5
-    }]
+    }],
+    point:
+    {
+      lat: 52.3909553943508,
+      lng: 4.939309666406198,
+      id: 4
+    }
   }
 ];

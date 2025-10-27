@@ -1,18 +1,18 @@
-﻿import {JSX, useState} from 'react';
+﻿import {JSX} from 'react';
 import {Offers} from '../types/offer.ts';
 import OfferCard from './offer-card.tsx';
 
 type OfferListProps = {
   offers: Offers;
+  onOfferHover: (offerId: number | null) => void;
 };
 
-function ListOffers({offers} : OfferListProps) : JSX.Element {
-  const [, setActiveOffer] = useState(0);
+function ListOffers({offers, onOfferHover} : OfferListProps) : JSX.Element {
   const handleOfferMouseEnter = (offerId: number) => {
-    setActiveOffer(offerId);
+    onOfferHover(offerId);
   };
   const handleOfferMouseLeave = () => {
-    setActiveOffer(0);
+    onOfferHover(null);
   };
 
   return (

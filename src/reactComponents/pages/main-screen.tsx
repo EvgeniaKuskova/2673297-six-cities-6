@@ -1,12 +1,28 @@
-﻿import { JSX } from 'react';
+﻿import {JSX, useState} from 'react';
 import {Offers} from '../../types/offer.ts';
 import ListOffers from '../list-offers.tsx';
+import Map from '../map.tsx';
+import {City} from '../../mocks/city.ts';
+import {Point} from '../../types/point.ts';
 
 type MainScreenProps = {
   offers: Offers;
 }
 
 function MainScreen({offers}: MainScreenProps): JSX.Element {
+  const POINTS = offers.map((offer) => offer.point);
+  const [selectedPoint, setSelectedPoint] = useState<Point | null>(null);
+
+  const handleListItemHover = (offerId: number | null) => {
+    if (offerId === null) {
+      setSelectedPoint(null);
+      return;
+    }
+
+    const currentPoint = POINTS.find((point) => point.id === offerId);
+    setSelectedPoint(currentPoint || null);
+  };
+
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -96,10 +112,18 @@ function MainScreen({offers}: MainScreenProps): JSX.Element {
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <ListOffers offers={offers}/>
+              <ListOffers
+                offers={offers}
+                onOfferHover={handleListItemHover}
+              />
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <Map
+                city={City}
+                className="cities__map map"
+                points={POINTS}
+                selectedPoint={selectedPoint!}
+              />
             </div>
           </div>
         </div>
