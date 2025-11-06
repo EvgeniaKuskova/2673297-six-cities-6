@@ -1,4 +1,4 @@
-﻿import { JSX } from 'react';
+﻿import {JSX} from 'react';
 import {Offers} from '../../types/offer.ts';
 import ListOffers from '../list-offers.tsx';
 
