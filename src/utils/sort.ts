@@ -11,8 +11,7 @@ export const sortOffers = (offers: Offer[], sortType: SortType): Offer[] => {
       return sortedOffers.sort((a, b) => b.price - a.price);
     case 'Top rated first':
       return sortedOffers.sort((a, b) => b.rating - a.rating);
-    case 'Popular':
     default:
-      return offers; // Исходный порядок
+      return offers;
   }
 };
