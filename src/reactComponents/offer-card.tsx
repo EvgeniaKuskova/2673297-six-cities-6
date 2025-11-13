@@ -6,20 +6,21 @@ import {Link} from 'react-router-dom';
 type OfferCardProps = {
   offer: Offer;
   inBookmarks: boolean;
+  cardType?: 'cities' | 'favorites' | 'near-places';
 };
 
-function OfferCard({offer, inBookmarks}: OfferCardProps): JSX.Element {
+function OfferCard({offer, inBookmarks, cardType = 'cities'}: OfferCardProps): JSX.Element {
   const maxRating = 5;
   const ratingWidthPercentage = (offer.rating / maxRating) * 100;
   return (
-    <article className="cities__card place-card">
+    <article className={`${cardType}__card place-card`}>
       {
         offer.isPremium &&
         <div className="place-card__mark">
           <span>Premium</span>
         </div>
       }
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={`${cardType}__image-wrapper place-card__image-wrapper`}>
         <Link to={`${AppRoute.Offer}/${offer.id}`}>
           <img className="place-card__image" src={offer.imageUrl} width="260" height="200" alt="Place image"/>
         </Link>
@@ -44,7 +45,7 @@ function OfferCard({offer, inBookmarks}: OfferCardProps): JSX.Element {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">Beautiful &amp;{offer.name}</a>
+          <a>Beautiful &amp;{offer.name}</a>
         </h2>
         <p className="place-card__type">{offer.type}</p>
       </div>
