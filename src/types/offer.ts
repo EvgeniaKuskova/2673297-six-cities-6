@@ -2,6 +2,7 @@
 import {Point} from './point.ts';
 
 export type Offer = {
+  city: string;
   name: string;
   type: string;
   imageUrl: string;

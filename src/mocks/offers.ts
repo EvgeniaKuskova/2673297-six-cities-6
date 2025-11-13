@@ -2,6 +2,7 @@
 
 export const offers: Offers = [
   {
+    city: 'Amsterdam',
     name: 'Beautiful &amp; luxurious apartment at great location',
     type: 'Apartment',
     imageUrl: 'img/apartment-01.jpg',
@@ -31,6 +32,7 @@ export const offers: Offers = [
     }
   },
   {
+    city: 'Amsterdam',
     name: 'Wood and stone place',
     type: 'Room',
     imageUrl: 'img/room.jpg',
@@ -49,6 +51,7 @@ export const offers: Offers = [
     }
   },
   {
+    city: 'Amsterdam',
     name: 'Canal View Prinsengracht',
     type: 'Apartment',
     imageUrl: 'img/apartment-02.jpg',
@@ -77,6 +80,7 @@ export const offers: Offers = [
     }
   },
   {
+    city: 'Amsterdam',
     name: 'Nice, cozy, warm big bed apartment',
     type: 'Apartment',
     imageUrl: 'img/apartment-03.jpg',
